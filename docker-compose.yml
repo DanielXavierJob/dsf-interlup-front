@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  front:
+    container_name: DSF-INTERLUP-FRONT-DEV
+    image: dsf-interlup-front-dev
+    env_file:
+      - /.env
+    build: .
+    command: /bin/sh -c "npm start"
+    ports:
+      - 3000:3000
+    restart: unless-stopped
+    volumes:
+      - ./:/home/node/dsf-interlup

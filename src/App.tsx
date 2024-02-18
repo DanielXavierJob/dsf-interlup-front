@@ -1,25 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { ConfigProvider } from "antd";
+import MessagesProvider from "./helpers/MessagesContext";
+import { BrowserRouter } from "react-router-dom";
+import Routes from "./Routes";
+import AuthenticationProvider from "./helpers/AuthenticationContext";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: "rgb(244 63 94 / var(--tw-ring-opacity))",
+        },
+        components: {
+          Button: {
+            colorText: "#fff",
+            textHoverBg: "rgb(146 38 56 / var(--tw-bg-opacity))",
+            defaultHoverColor: "text-rose-600",
+            colorLinkHover: "text-rose-600",
+            colorLink: "text-rose-500",
+            colorLinkActive: "text-rose-600",
+          },
+        },
+      }}
+    >
+      <MessagesProvider>
+        <BrowserRouter>
+          <AuthenticationProvider>
+            <Routes />
+          </AuthenticationProvider>
+        </BrowserRouter>
+      </MessagesProvider>
+    </ConfigProvider>
   );
 }
 
