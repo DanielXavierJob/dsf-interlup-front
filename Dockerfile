@@ -7,3 +7,5 @@ WORKDIR /home/node/dsf-interlup
 
 COPY --chown=node:node . .
 RUN npm install
+
+CMD ['npm', 'start']
