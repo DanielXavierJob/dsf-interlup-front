@@ -1,11 +1,13 @@
-FROM node:alpine
-
-USER node
-
-RUN mkdir -p /home/node/dsf-interlup
-WORKDIR /home/node/dsf-interlup
-
-COPY --chown=node:node . .
+# Build stage
+FROM node:latest AS build
+WORKDIR /app
+COPY package*.json ./
 RUN npm install
+COPY . .
+RUN npm run build
 
-CMD ['npm', 'start']
+# Production stage
+FROM nginx:stable-alpine AS production
+COPY --from=build /app/build /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
