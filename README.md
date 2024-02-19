@@ -1,46 +1,86 @@
-# Getting Started with Create React App
+# dsf-interlup-front
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the dsf-interlup-front repository! This repository contains the source code for the DSF Interlup FRONT project.
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+DSF Interlup FRONT is an interface aimed at managing tasks in the Kanban style, with it you can create tasks and organize them by columns
 
-### `npm start`
+## Local Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To run this project locally, follow these steps:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Clone the repository to your local machine:
 
-### `npm test`
+   ```bash
+   git clone https://github.com/danielxavierjob/dsf-interlup-front.git
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Install the project dependencies:
 
-### `npm run build`
+   ```bash
+   cd dsf-interlup-front
+   npm install
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3. Set up the environment:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   - Create a `.env` file in the root directory.
+   - Define the required environment variables in the `.env` file. Example:
+     ```
+     REACT_APP_API_URL=http://localhost:5000
+     ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Run the React application:
 
-### `npm run eject`
+   ```bash
+   npm start
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+6. Access the Project at `http://localhost:3000`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Docker Installation
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+To run this project with Docker, follow these steps:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Clone the repository to your local machine:
 
-## Learn More
+   ```bash
+   git clone https://github.com/danielxavierjob/dsf-interlup-front.git
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. Navigate to the project folder:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```bash
+   cd dsf-interlup-front
+   ```
+
+3. Set up the environment:
+
+   - Create a `.env` file in the root directory.
+   - Define the required environment variables in the `.env` file. Example:
+     ```
+     REACT_APP_API_URL=http://localhost:5000
+     ```
+
+4. Run the application with Docker:
+
+   ```bash
+   docker compose build
+   docker compose up
+   ```
+
+5. Access the API endpoints at `http://localhost:3000`.
+
+## Usage
+
+When the application is online, create an account then log in, by default you will already have 3 columns with 1 example task in each, there you will see the options to create new columns, create new tasks, sort them and delete them easily
+
+
+## Contributing
+
+Contributions are welcome! If you have ideas for improvements, bug fixes, or new features, feel free to open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
