@@ -31,7 +31,6 @@ interface KanbanContextProps {
   activeTaskEdit: Task | null;
   skeleton: boolean;
   openDrawerToCreateTask: (category_id: string) => void;
-  updateTitleColumn: (id: string, title: string) => Promise<void>
 }
 interface CreateNewTaskProps {
   title: string;

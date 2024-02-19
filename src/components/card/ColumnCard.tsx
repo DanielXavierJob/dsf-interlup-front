@@ -9,7 +9,7 @@ import { ColumnContainerProps } from "../../@types/card.type";
 
 function ColumnContainer({ column, tasks }: ColumnContainerProps) {
   const [editMode, setEditMode] = useState(false);
-  const { deleteColumn, updateColumn, openDrawerToCreateTask, skeleton, updateTitleColumn } =
+  const { deleteColumn, updateColumn, openDrawerToCreateTask, skeleton } =
     useContext(KanbanContext);
 
   const tasksIds = useMemo(() => {
@@ -131,8 +131,7 @@ function ColumnContainer({ column, tasks }: ColumnContainerProps) {
                 placeholder="Write your title here..."
                 variant="borderless"
                 className="bg-black focus:border-rose-500 border rounded outline-none px-2 text-white"
-                value={column.title}
-                onChange={(e) => updateTitleColumn(column.id, e.target.value)}
+                defaultValue={column.title}
                 autoFocus
                 onBlur={(e) => {
                   updateColumn(column.id, e.target.value)

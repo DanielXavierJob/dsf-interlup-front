@@ -21,7 +21,6 @@ import { CreateNewTaskProps, KanbanContextProps } from "../@types/kanban.type";
 import { AuthenticationContext } from "./AuthenticationContext";
 import { MessageContext } from "./MessagesContext";
 import { FetchResponseProps } from "../@types/fetch.type";
-import getDifferences from "../utils/getDifferences";
 export const KanbanContext = createContext<KanbanContextProps>({
   columns: defaultCols,
   columnsId: defaultCols.map((col) => col.id),
@@ -47,7 +46,6 @@ export const KanbanContext = createContext<KanbanContextProps>({
   activeTaskEdit: null,
   skeleton: true,
   openDrawerToCreateTask: (category_id: string) => {},
-  updateTitleColumn: (id: string, title: string) => Promise.resolve(),
 });
 const KanbanProvider = ({ children }: { children: React.ReactNode }) => {
   const [columns, setColumns] = useState<ColumnCard[]>(defaultCols);
@@ -338,16 +336,7 @@ const KanbanProvider = ({ children }: { children: React.ReactNode }) => {
       error(err.message);
     }
   };
-  const updateTitleColumn = async (id: string, title: string) => {
-    const newColumns = columns.map((col) => {
-      if (col.id !== id) return col;
-      return {
-        ...col,
-        title: title ?? col.title,
-      };
-    });
-    setColumns(newColumns);
-  };
+
   const onDragStart = (event: DragStartEvent) => {
     if (event.active.data.current?.type === "Column") {
       setActiveColumn(event.active.data.current.column);
@@ -481,7 +470,6 @@ const KanbanProvider = ({ children }: { children: React.ReactNode }) => {
         activeTaskEdit,
         skeleton,
         openDrawerToCreateTask,
-        updateTitleColumn,
       }}
     >
       {children}
