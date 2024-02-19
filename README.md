@@ -2,6 +2,8 @@
 
 Welcome to the dsf-interlup-front repository! This repository contains the source code for the DSF Interlup FRONT project.
 
+See the README in **Portuguese** in [Readme pt-BR](https://github.com/DanielXavierJob/dsf-interlup-front/blob/master/docs/pt-BR.md)
+
 ## Description
 
 DSF Interlup FRONT is an interface aimed at managing tasks in the Kanban style, with it you can create tasks and organize them by columns
